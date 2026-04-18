@@ -85,3 +85,15 @@ function loadTourDates() {
 }
 
 loadTourDates();
+
+
+/* ============================================================
+   VARIABLE FONT: randomize wdth per letter in section headings
+   ============================================================ */
+document.querySelectorAll('.section-heading').forEach(heading => {
+  heading.innerHTML = [...heading.textContent].map(char =>
+    char === ' '
+      ? ' '
+      : `<span class="vf-char" style="font-variation-settings:'wdth' ${Math.random() * 100}">${char}</span>`
+  ).join('');
+});

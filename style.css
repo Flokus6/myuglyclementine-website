@@ -11,6 +11,14 @@
 }
 
 @font-face {
+  font-family: 'MUC Stars VF';
+  src: url('./fonts/MUCStarsVF.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'MUC Stars Condensed';
   src: url('./fonts/MUCStars-RegularCondensed.woff2') format('woff2'),
        url('./fonts/MUCStars-RegularCondensed.woff') format('woff');
@@ -21,8 +29,8 @@
 
 @font-face {
   font-family: 'Rimbus Sans';
-  src: url('./fonts/rimbus-sans_regular-webfont.woff2') format('woff2'),
-       url('./fonts/rimbus-sans_regular-webfont.woff') format('woff');
+  src: url('./fonts/nimbus-sans_regular-webfont.woff2') format('woff2'),
+       url('./fonts/nimbus-sans_regular-webfont.woff') format('woff');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -30,8 +38,8 @@
 
 @font-face {
   font-family: 'Rimbus Sans';
-  src: url('./fonts/rimbus-sans_regular-webfont.woff2') format('woff2'),
-       url('./fonts/rimbus-sans_regular-webfont.woff') format('woff');
+  src: url('./fonts/nimbus-sans_regular-webfont.woff2') format('woff2'),
+       url('./fonts/nimbus-sans_regular-webfont.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -255,7 +263,7 @@ img {
 }
 
 .section-heading {
-  font-family: var(--font-display);
+  font-family: 'MUC Stars VF', serif;
   font-weight: 400;
   font-size: clamp(60px, 10vw, 120px);
   letter-spacing: 0.05em;
@@ -263,6 +271,10 @@ img {
   color: var(--white);
   line-height: 1;
   margin-bottom: 60px;
+}
+
+.section-heading .vf-char {
+  display: inline-block;
 }
 
 /* ---- Tour list ---- */
