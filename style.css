@@ -19,7 +19,23 @@
   font-display: swap;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap');
+@font-face {
+  font-family: 'Rimbus Sans';
+  src: url('./fonts/rimbus-sans_regular-webfont.woff2') format('woff2'),
+       url('./fonts/rimbus-sans_regular-webfont.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rimbus Sans';
+  src: url('./fonts/rimbus-sans_regular-webfont.woff2') format('woff2'),
+       url('./fonts/rimbus-sans_regular-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* ============================================================
    CUSTOM PROPERTIES
@@ -37,7 +53,7 @@
 
   --font-display: 'MUC Stars', serif;
   --font-condensed: 'MUC Stars Condensed', serif;
-  --font-body:    'Inter', Arial, sans-serif;
+  --font-body:    'Rimbus Sans', Arial, sans-serif;
 
   --nav-height: 110px;
   --transition: 0.3s ease;
