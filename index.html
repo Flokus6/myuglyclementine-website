@@ -3,12 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Ugly Clementine</title>
+  <title>My Ugly Clementine – Live Dates & Tour 2026</title>
+  <meta name="description" content="My Ugly Clementine – österreichische Indie-Pop Band. Aktuelle Tourdaten, Tickets und mehr.">
+  <link rel="canonical" href="https://myuglyclementine.netlify.app/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://myuglyclementine.netlify.app/">
+  <meta property="og:title" content="My Ugly Clementine – Live Dates & Tour 2026">
+  <meta property="og:description" content="My Ugly Clementine – österreichische Indie-Pop Band. Aktuelle Tourdaten, Tickets und mehr.">
+  <meta property="og:image" content="https://myuglyclementine.netlify.app/Images/MUC_Hero-Image.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="My Ugly Clementine – Live Dates & Tour 2026">
+  <meta name="twitter:description" content="My Ugly Clementine – österreichische Indie-Pop Band. Aktuelle Tourdaten, Tickets und mehr.">
+  <meta name="twitter:image" content="https://myuglyclementine.netlify.app/Images/MUC_Hero-Image.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" href="./Images/MUC-Logo_01.svg" type="image/svg+xml">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    "name": "My Ugly Clementine",
+    "url": "https://myuglyclementine.netlify.app",
+    "image": "https://myuglyclementine.netlify.app/Images/MUC_Hero-Image.jpg",
+    "genre": "Indie Pop",
+    "foundingLocation": {
+      "@type": "Place",
+      "name": "Wien, Austria"
+    },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "contactType": "Management",
+        "email": "henning@woistdieeuphorie.com",
+        "name": "Henning Mues"
+      },
+      {
+        "@type": "ContactPoint",
+        "contactType": "Booking",
+        "email": "br@gastspielreisen.com",
+        "name": "Ben Rodenberg"
+      }
+    ]
+  }
+  </script>
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <nav id="main-nav">
+  <nav id="main-nav" aria-label="Hauptnavigation">
     <div class="nav-inner">
       <a href="#" class="nav-logo">
         <img src="./Images/MUC-Logo_01.svg" alt="My Ugly Clementine">
@@ -21,6 +70,8 @@
     </div>
   </nav>
 
+  <main>
+  <h1 class="sr-only">My Ugly Clementine</h1>
   <section class="hero">
     <div class="hero-overlay"></div>
     <a href="#live" class="hero-scroll" aria-label="Zu den Tourdaten">
@@ -39,6 +90,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <footer class="site-footer">
     <div class="container">
@@ -50,7 +102,7 @@
         <span class="footer-sep">·</span>
         <span>Sync &amp; Licensing: <a href="mailto:juergen.distler@inkmusic.at">juergen.distler@inkmusic.at</a></span>
       </p>
-      <nav class="footer-nav">
+      <nav class="footer-nav" aria-label="Rechtliches">
         <a href="imprint.html">Imprint</a>
         <a href="data-privacy.html">Data Privacy</a>
       </nav>

@@ -28,7 +28,7 @@
 }
 
 @font-face {
-  font-family: 'Rimbus Sans';
+  font-family: 'Nimbus Sans';
   src: url('./fonts/nimbus-sans_regular-webfont.woff2') format('woff2'),
        url('./fonts/nimbus-sans_regular-webfont.woff') format('woff');
   font-weight: 300;
@@ -37,7 +37,7 @@
 }
 
 @font-face {
-  font-family: 'Rimbus Sans';
+  font-family: 'Nimbus Sans';
   src: url('./fonts/nimbus-sans_regular-webfont.woff2') format('woff2'),
        url('./fonts/nimbus-sans_regular-webfont.woff') format('woff');
   font-weight: 400;
@@ -61,10 +61,25 @@
 
   --font-display: 'MUC Stars', serif;
   --font-condensed: 'MUC Stars Condensed', serif;
-  --font-body:    'Rimbus Sans', Arial, sans-serif;
+  --font-body:    'Nimbus Sans', Arial, sans-serif;
 
   --nav-height: 110px;
   --transition: 0.3s ease;
+}
+
+/* ============================================================
+   ACCESSIBILITY
+   ============================================================ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* ============================================================
@@ -295,10 +310,10 @@ img {
 
 .tour-row {
   display: grid;
-  grid-template-columns: 160px 1fr auto;
+  grid-template-columns: 220px 1fr auto;
   align-items: center;
   gap: 24px;
-  padding: 22px 0;
+  padding: 20px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   transition: background var(--transition);
 }
@@ -312,47 +327,54 @@ img {
 }
 
 .tour-date {
-  font-family: var(--font-body);
-  font-weight: 300;
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  color: var(--pink);
+  font-family: 'MUC Stars VF', serif;
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 52px);
+  letter-spacing: 0.02em;
+  color: var(--white);
   text-transform: uppercase;
   white-space: nowrap;
+  line-height: 1;
+}
+
+.tour-date .vf-char {
+  display: inline;
 }
 
 .tour-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  display: block;
 }
 
 .tour-city {
-  font-family: var(--font-body);
+  font-family: 'Nimbus Sans', Arial, sans-serif;
   font-weight: 400;
-  font-size: 16px;
-  letter-spacing: 0.02em;
+  font-size: clamp(28px, 3.5vw, 46px);
+  letter-spacing: -0.075em;
+  text-transform: uppercase;
   color: var(--white);
+  line-height: 1;
 }
 
 .tour-venue {
-  font-family: var(--font-body);
+  font-family: 'Nimbus Sans', Arial, sans-serif;
   font-weight: 300;
-  font-size: 13px;
-  letter-spacing: 0.02em;
-  color: rgba(255, 255, 255, 0.45);
+  font-size: clamp(28px, 3.5vw, 46px);
+  letter-spacing: -0.075em;
+  text-transform: none;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .tour-ticket {
   display: inline-block;
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--white);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 8px 18px;
+  padding: 14px 24px;
+  margin-right: 24px;
   white-space: nowrap;
   transition: background var(--transition), color var(--transition), border-color var(--transition);
 }
@@ -461,11 +483,11 @@ img {
 }
 
 .subpage-wrap .container {
-  max-width: 760px;
+  max-width: 1200px;
 }
 
 .subpage-wrap h1 {
-  font-family: var(--font-display);
+  font-family: 'MUC Stars VF', serif;
   font-weight: 400;
   font-size: clamp(40px, 6vw, 72px);
   letter-spacing: 0.05em;

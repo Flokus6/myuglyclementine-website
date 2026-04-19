@@ -1,4 +1,20 @@
 /* ============================================================
+   VARIABLE FONT: randomize wdth per letter
+   ============================================================ */
+function randomizeVF(el) {
+  const text = el.textContent;
+  el.setAttribute('aria-label', text);
+  el.innerHTML = [...text].map(char =>
+    char === ' '
+      ? ' '
+      : `<span class="vf-char" aria-hidden="true" style="font-variation-settings:'wdth' ${Math.random() * 100}">${char}</span>`
+  ).join('');
+}
+
+document.querySelectorAll('.section-heading, .subpage-wrap h1').forEach(randomizeVF);
+
+
+/* ============================================================
    NAV: transparent → opaque on scroll
    ============================================================ */
 const nav = document.getElementById('main-nav');
@@ -37,36 +53,38 @@ function renderTourDates(rows) {
     const venue     = cols[3] || '';
     const ticketURL = (cols[4] || '').trim();
 
-    const dateLabel = [weekday, datum].filter(Boolean).join('\u2002');
+    // Reformat from DD.MM.YYYY → MM/DD
+    const dateParts = datum.match(/(\d{1,2})\.(\d{1,2})/);
+    const dateLabel = dateParts
+      ? `${dateParts[2].padStart(2,'0')}/${dateParts[1].padStart(2,'0')}`
+      : datum;
 
     const ticketBtn = ticketURL
-      ? `<a href="${ticketURL}" class="tour-ticket" target="_blank" rel="noopener">Tickets</a>`
+      ? `<a href="${ticketURL}" class="tour-ticket" target="_blank" rel="noopener" aria-label="Tickets für ${city}, öffnet in neuem Tab">Tickets</a>`
       : `<span class="tour-ticket-placeholder"></span>`;
 
     return `
       <div class="tour-row">
         <span class="tour-date">${dateLabel}</span>
         <div class="tour-info">
-          <span class="tour-city">${city}</span>
-          ${venue ? `<span class="tour-venue">${venue}</span>` : ''}
+          <span class="tour-city">${city}${venue ? `, <span class="tour-venue">${venue}</span>` : ''}</span>
         </div>
         ${ticketBtn}
       </div>`;
   }).join('');
 
   list.innerHTML = html;
+  list.querySelectorAll('.tour-date').forEach(randomizeVF);
 }
 
 function loadTourDates() {
   const list = document.getElementById('tour-list');
 
-  // Define the function Google will call when the script loads
   window.google = window.google || {};
   window.google.visualization = window.google.visualization || {};
   window.google.visualization.Query = window.google.visualization.Query || {};
   window.google.visualization.Query.setResponse = function(data) {
     try {
-      // Row 0 is the header row ("Tag", "Datum", ...) — skip it
       const rows = (data.table.rows || []).slice(1)
         .filter(r => r.c && cellValue(r.c[0]));
       renderTourDates(rows);
@@ -85,15 +103,3 @@ function loadTourDates() {
 }
 
 loadTourDates();
-
-
-/* ============================================================
-   VARIABLE FONT: randomize wdth per letter in section headings
-   ============================================================ */
-document.querySelectorAll('.section-heading').forEach(heading => {
-  heading.innerHTML = [...heading.textContent].map(char =>
-    char === ' '
-      ? ' '
-      : `<span class="vf-char" style="font-variation-settings:'wdth' ${Math.random() * 100}">${char}</span>`
-  ).join('');
-});

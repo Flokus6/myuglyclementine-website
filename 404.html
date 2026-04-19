@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 – My Ugly Clementine</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="./Images/MUC-Logo_01.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .error-wrap {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .error-code {
+      font-family: 'MUC Stars VF', serif;
+      font-weight: 400;
+      font-size: clamp(140px, 22vw, 320px);
+      line-height: 0.85;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 40px;
+    }
+
+    .error-code .vf-char {
+      display: inline;
+    }
+
+    .error-message {
+      font-family: 'Nimbus Sans', Arial, sans-serif;
+      font-size: clamp(18px, 2vw, 26px);
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 32px;
+    }
+
+    .error-home {
+      font-family: 'Nimbus Sans', Arial, sans-serif;
+      font-size: clamp(18px, 2vw, 26px);
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      transition: color var(--transition);
+    }
+
+    .error-home:hover {
+      color: var(--pink);
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="main-nav" class="scrolled">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="./Images/MUC-Logo_01.svg" alt="My Ugly Clementine">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#live">Live</a></li>
+        <li><a href="https://shop.myuglyclementine.com/" target="_blank" rel="noopener">Shop</a></li>
+        <li><a href="https://linktr.ee/myuglyclementine" target="_blank" rel="noopener">Music</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="error-wrap">
+    <h1 class="error-code">404</h1>
+    <p class="error-message">… sorry this ugly thing happened.</p>
+    <a href="index.html" class="error-home">Back to home →</a>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    document.querySelectorAll('.error-code').forEach(el => {
+      el.innerHTML = [...el.textContent].map(char =>
+        char === ' '
+          ? ' '
+          : `<span class="vf-char" style="font-variation-settings:'wdth' ${Math.random() * 100}">${char}</span>`
+      ).join('');
+    });
+  </script>
+</body>
+</html>
