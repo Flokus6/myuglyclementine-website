@@ -633,7 +633,13 @@ img {
   .tour-date {
     grid-column: 1;
     grid-row: 1;
-    font-size: 11px;
+    font-size: clamp(42px, 10vw, 64px);
+  }
+
+  .tour-weekday {
+    font-size: 0.55em;
+    vertical-align: baseline;
+    line-height: inherit;
   }
 
   .tour-info {
