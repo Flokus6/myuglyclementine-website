@@ -28,7 +28,7 @@ window.addEventListener('scroll', () => {
    TOUR DATES via Google gviz JSONP
    Google always calls google.visualization.Query.setResponse()
    — so we just define that function ourselves before loading the script.
-   Columns: Tag | Datum | Stadt | Venue | Ticket URL (optional)
+   Columns: Tag | Datum | Stadt | Venue | Ticket URL | Sold Out
    ============================================================ */
 const SHEET_ID = '10w92WXrxO_rF5IL3W6GWfquZ-lzsuK29BCBCdvMD0nM';
 
@@ -52,20 +52,23 @@ function renderTourDates(rows) {
     const city      = cols[2] || '';
     const venue     = cols[3] || '';
     const ticketURL = (cols[4] || '').trim();
+    const soldOut   = (cols[5] || '').trim().toLowerCase() === 'x';
 
     // Reformat from DD.MM.YYYY → MM/DD
     const dateParts = datum.match(/(\d{1,2})\.(\d{1,2})/);
-    const dateLabel = dateParts
+    const dateFormatted = dateParts
       ? `${dateParts[2].padStart(2,'0')}/${dateParts[1].padStart(2,'0')}`
       : datum;
 
-    const ticketBtn = ticketURL
-      ? `<a href="${ticketURL}" class="tour-ticket" target="_blank" rel="noopener" aria-label="Tickets für ${city}, öffnet in neuem Tab">Tickets</a>`
-      : `<span class="tour-ticket-placeholder"></span>`;
+    const ticketBtn = soldOut
+      ? `<span class="tour-sold-out">Sold Out</span>`
+      : ticketURL
+        ? `<a href="${ticketURL}" class="tour-ticket" target="_blank" rel="noopener" aria-label="Tickets für ${city}, öffnet in neuem Tab">Tickets</a>`
+        : `<span class="tour-ticket-placeholder"></span>`;
 
     return `
-      <div class="tour-row">
-        <span class="tour-date">${dateLabel}</span>
+      <div class="tour-row${soldOut ? ' sold-out' : ''}">
+        <span class="tour-date"><sup class="tour-weekday">${weekday}</sup><span class="tour-date-numbers">${dateFormatted}</span></span>
         <div class="tour-info">
           <span class="tour-city">${city}${venue ? `, <span class="tour-venue">${venue}</span>` : ''}</span>
         </div>
@@ -74,7 +77,7 @@ function renderTourDates(rows) {
   }).join('');
 
   list.innerHTML = html;
-  list.querySelectorAll('.tour-date').forEach(randomizeVF);
+  list.querySelectorAll('.tour-date-numbers').forEach(randomizeVF);
 }
 
 function loadTourDates() {

@@ -341,6 +341,36 @@ img {
   display: inline;
 }
 
+.tour-weekday {
+  font-family: 'Nimbus Sans', Arial, sans-serif;
+  font-size: 0.4em;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  vertical-align: super;
+  margin-right: 0.3em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.tour-row.sold-out .tour-date,
+.tour-row.sold-out .tour-city,
+.tour-row.sold-out .tour-venue {
+  text-decoration: line-through;
+  opacity: 0.35;
+}
+
+.tour-sold-out {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  padding: 14px 24px;
+  margin-right: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+}
+
 .tour-info {
   display: block;
 }
