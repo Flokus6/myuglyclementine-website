@@ -633,7 +633,7 @@ img {
   .tour-date {
     grid-column: 1;
     grid-row: 1;
-    font-size: clamp(42px, 10vw, 64px);
+    font-size: 19px;
   }
 
   .tour-weekday {
