@@ -595,13 +595,6 @@ img {
     --nav-height: 80px;
   }
 
-  .hero {
-    background-size: 100% auto;
-    background-position: center top;
-    min-height: unset;
-    height: auto;
-    aspect-ratio: 3 / 4;
-  }
 
   .container {
     padding: 0 24px;
