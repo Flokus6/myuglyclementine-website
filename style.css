@@ -311,7 +311,7 @@ img {
 .tour-row {
   display: grid;
   grid-template-columns: 220px 1fr auto;
-  align-items: start;
+  align-items: center;
   gap: 24px;
   padding: 20px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);

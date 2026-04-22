@@ -57,7 +57,7 @@ function renderTourDates(rows) {
     // Reformat from DD.MM.YYYY → MM/DD
     const dateParts = datum.match(/(\d{1,2})\.(\d{1,2})/);
     const dateFormatted = dateParts
-      ? `${dateParts[2].padStart(2,'0')}/${dateParts[1].padStart(2,'0')}`
+      ? `${dateParts[1].padStart(2,'0')}/${dateParts[2].padStart(2,'0')}`
       : datum;
 
     const ticketBtn = soldOut
